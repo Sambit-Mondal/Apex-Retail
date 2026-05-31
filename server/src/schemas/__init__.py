@@ -5,7 +5,7 @@ Exposes core Pydantic schemas for event validation and type safety across
 detection pipeline, API, and analytics layers.
 """
 
-from server.src.schemas.events import (
+from src.schemas.events import (
     EventType,
     EventMetadata,
     RetailEvent,
