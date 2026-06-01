@@ -11,8 +11,8 @@ import sys
 from pathlib import Path
 from typing import List
 
-from server.src.pipeline.detector import process_video_to_events
-from server.src.schemas.events import RetailEvent
+from .detector import process_video_to_events
+from ..schemas.events import RetailEvent
 
 
 logging.basicConfig(

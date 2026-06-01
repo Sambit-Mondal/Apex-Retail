@@ -13,8 +13,8 @@ from fastapi import FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
-from src.schemas.events import RetailEvent, EventType
-from src.api.database import get_database
+from ..schemas.events import RetailEvent, EventType
+from .database import get_database
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -288,9 +288,8 @@ async def health_check() -> HealthResponse:
     Raises:
         HTTPException 503: If health check fails.
     """
-    db = get_database()
-
     try:
+        db = get_database()
         health = await db.health_check()
 
         if health.get("status") == "unhealthy":

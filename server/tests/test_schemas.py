@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from uuid import uuid4
 import pytest
 
-from server.src.schemas.events import EventType, EventMetadata, RetailEvent
+from src.schemas.events import EventType, EventMetadata, RetailEvent
 
 
 class TestEventType:

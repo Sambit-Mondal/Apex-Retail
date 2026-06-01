@@ -205,23 +205,23 @@ class AnalyticsDatabase:
                 datetime.now(timezone.utc) - timedelta(days=days)
             ).isoformat()
 
-            # Query 1: Unique visitors today
+            # Query 1: Unique visitors today (excluding staff)
             cursor.execute(
                 """
                 SELECT COUNT(DISTINCT visitor_id) as count
                 FROM events
-                WHERE store_id = ? AND timestamp >= ?
+                WHERE store_id = ? AND timestamp >= ? AND is_staff = 0
                 """,
                 (store_id, time_threshold),
             )
             unique_visitors = cursor.fetchone()["count"] or 0
 
-            # Query 2: Average dwell time (excluding 0 dwell events)
+            # Query 2: Average dwell time (excluding 0 dwell events, excluding staff)
             cursor.execute(
                 """
                 SELECT AVG(dwell_ms) as avg_dwell
                 FROM events
-                WHERE store_id = ? AND timestamp >= ? AND dwell_ms > 0
+                WHERE store_id = ? AND timestamp >= ? AND dwell_ms > 0 AND is_staff = 0
                 """,
                 (store_id, time_threshold),
             )

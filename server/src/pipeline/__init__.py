@@ -6,7 +6,7 @@ Exports:
   - process_video_to_events: Convenience function for processing videos
 """
 
-from server.src.pipeline.detector import (
+from .detector import (
     DetectionPipeline,
     process_video_to_events,
     LineCrossingDetector,

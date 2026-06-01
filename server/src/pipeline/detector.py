@@ -15,7 +15,7 @@ import cv2
 import numpy as np
 from ultralytics import YOLO
 
-from server.src.schemas.events import EventType, EventMetadata, RetailEvent
+from ..schemas.events import EventType, EventMetadata, RetailEvent
 
 
 logger = logging.getLogger(__name__)

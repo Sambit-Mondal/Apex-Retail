@@ -147,3 +147,6 @@ __pycache__/
 
 # Dataset
 /server/data*
+
+*.md
+*.pt
